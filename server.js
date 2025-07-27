@@ -12,7 +12,7 @@ const app = express();
 const dbURL = process.env.MONGODB_URI || "mongodb+srv://Farmley_db:Farmley_9575@farmley.roovp.mongodb.net/?retryWrites=true&w=majority&appName=Farmley";
 
 const allowedOrigins = [
-  "http://localhost:5000",
+  "https://localhost:5000",
   "https://your-frontend-domain.vercel.app"
 ];
 
