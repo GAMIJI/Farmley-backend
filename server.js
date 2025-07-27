@@ -11,6 +11,8 @@ const app = express();
 // ✅ MongoDB URI
 const dbURL = process.env.MONGODB_URI || "mongodb+srv://Farmley_db:Farmley_9575@farmley.roovp.mongodb.net/?retryWrites=true&w=majority&appName=Farmley";
 
+
+
 const allowedOrigins = [
   "https://localhost:5000",
   "https://farmley-phi.vercel.app"
@@ -66,10 +68,10 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);
 
 // ✅ Global Error Handler
-app.use((err, req, res, next) => {
-  console.error("🔥 [ERROR]:", err.stack);
-  res.status(err.status || 500).json({ error: err.message || "Internal Server Error" });
-});
+// app.use((err, req, res, next) => {
+//   console.error("🔥 [ERROR]:", err.stack);
+//   res.status(err.status || 500).json({ error: err.message || "Internal Server Error" });
+// });
 
 // ✅ Start Server
 const PORT = process.env.PORT || 5001;
