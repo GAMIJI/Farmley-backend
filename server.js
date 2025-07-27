@@ -13,7 +13,7 @@ const dbURL = process.env.MONGODB_URI || "mongodb+srv://Farmley_db:Farmley_9575@
 
 const allowedOrigins = [
   "https://localhost:5000",
-  "https://your-frontend-domain.vercel.app"
+  "https://farmley-phi.vercel.app/"
 ];
 
 app.use(cors({
