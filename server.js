@@ -12,16 +12,13 @@ const app = express();
 const dbURL = process.env.MONGODB_URI || "mongodb+srv://Farmley_db:Farmley_9575@farmley.roovp.mongodb.net/?retryWrites=true&w=majority&appName=Farmley";
 
 // ✅ Allowed origins
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://farmley-git-main-mohit-gamis-projects.vercel.app"
-];
+// const allowedOrigins = [
+//   "http://localhost:3000",
+//   "https://farmley-git-main-mohit-gamis-projects.vercel.app"
+// ];
 
 // ✅ Allow All Origins - For Development Only
-app.use(cors({
-  origin: true, // dynamically reflect request origin
-  credentials: true,
-}));
+app.use(cors());
 
 
 
