@@ -11,16 +11,25 @@ const app = express();
 // ✅ MongoDB URI
 const dbURL = process.env.MONGODB_URI || "mongodb+srv://Farmley_db:Farmley_9575@farmley.roovp.mongodb.net/?retryWrites=true&w=majority&appName=Farmley";
 
-// ✅ Allowed origins
-// const allowedOrigins = [
-//   "http://localhost:3000",
-//   "https://farmley-git-main-mohit-gamis-projects.vercel.app"
-// ];
+const allowedOrigins = [
+  "http://localhost:5000",
+  "https://your-frontend-domain.vercel.app"
+];
 
-// ✅ Allow All Origins - For Development Only
-app.use(cors());
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
-
+app.options("*", cors()); // ✅ handles preflight
 
 // ✅ Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
